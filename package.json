@@ -22,7 +22,7 @@
     "@angular/ssr": "^18.1.2",
     "@antv/g2plot": "^2.4.31",
     "cron-parser": "^4.9.0",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "idb-keyval": "^6.2.1",
     "joi": "^17.12.2",
     "ng-zorro-antd": "18.1.0",
