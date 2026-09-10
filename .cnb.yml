@@ -1,0 +1,34 @@
+# 推送分支：构建并同步代码到 GitHub
+$:
+  push:
+    - docker:
+        image: node:24
+      stages:
+        - name: 安装依赖
+          script: npm ci
+        - name: 代码检查
+          script: npm run lint
+        - name: 构建
+          script: npm run build
+        - name: 同步到 GitHub
+          imports: https://cnb.cool/kainonly/secrets/-/blob/main/github.yml
+          image: tencentcom/git-sync
+          settings:
+            target_url: https://github.com/kainonly/litho.git
+            auth_type: https
+            username: ${GIT_USERNAME}
+            password: ${GIT_ACCESS_TOKEN}
+            branch: ${CNB_BRANCH}
+
+  # 推送 Tag：同步 Tag 到 GitHub
+  tag_push:
+    - stages:
+        - name: 同步 Tag 到 GitHub
+          imports: https://cnb.cool/kainonly/secrets/-/blob/main/github.yml
+          image: tencentcom/git-sync
+          settings:
+            target_url: https://github.com/kainonly/litho.git
+            auth_type: https
+            username: ${GIT_USERNAME}
+            password: ${GIT_ACCESS_TOKEN}
+            push_tags: true
