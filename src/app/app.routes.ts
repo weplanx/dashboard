@@ -25,20 +25,6 @@ export const routes: Routes = [
         loadChildren: () => import('./index/children.routes').then(m => m.childrenRoutes)
       },
       {
-        path: 'business',
-        data: {
-          breadcrumb: '实验对象'
-        },
-        loadComponent: () => import('./business/business').then(m => m.Business)
-      },
-      {
-        path: 'analysis',
-        data: {
-          breadcrumb: '实验报表'
-        },
-        loadComponent: () => import('./analysis/analysis').then(m => m.Analysis)
-      },
-      {
         path: 'system',
         data: {
           breadcrumb: '系统设置'

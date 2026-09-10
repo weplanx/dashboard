@@ -8,12 +8,5 @@ export const childrenRoutes: Routes = [
     },
     loadChildren: () => import('./dashboard/children.routes').then(m => m.childrenRoutes)
   },
-  {
-    path: 'market',
-    data: {
-      breadcrumb: `交易大厅`
-    },
-    loadChildren: () => import('./market/children.routes').then(m => m.childrenRoutes)
-  },
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
 ];
