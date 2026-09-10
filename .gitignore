@@ -30,7 +30,6 @@ yarn-error.log
 
 # Miscellaneous
 /.angular/cache
-.ng-zorro-llms-full-cn.txt
 .sass-cache/
 /connect.lock
 /coverage
