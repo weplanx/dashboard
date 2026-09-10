@@ -1,15 +1,7 @@
-# 推送分支：构建并同步代码到 GitHub
+# 推送分支：同步代码到 GitHub
 $:
   push:
-    - docker:
-        image: node:24
-      stages:
-        - name: 安装依赖
-          script: npm ci
-        - name: 代码检查
-          script: npm run lint
-        - name: 构建
-          script: npm run build
+    - stages:
         - name: 同步到 GitHub
           imports: https://cnb.cool/kainonly/secrets/-/blob/main/github.yml
           image: tencentcom/git-sync
