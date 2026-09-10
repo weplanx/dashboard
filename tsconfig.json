@@ -3,7 +3,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -17,31 +16,31 @@
     "module": "preserve",
     "paths": {
       "@env": [
-        "src/environments/environment.ts"
+        "./src/environments/environment.ts"
       ],
       "@shared": [
-        "src/shared/public-api.ts"
+        "./src/shared/public-api.ts"
       ],
       "@shared/models": [
-        "src/shared/models"
+        "./src/shared/models"
       ],
       "@shared/models/*": [
-        "src/shared/models/*"
+        "./src/shared/models/*"
       ],
       "@shared/apis": [
-        "src/shared/apis"
+        "./src/shared/apis"
       ],
       "@shared/apis/*": [
-        "src/shared/apis/*"
+        "./src/shared/apis/*"
       ],
       "@shared/components/*": [
-        "src/shared/components/*"
+        "./src/shared/components/*"
       ],
       "@shared/directives/*": [
-        "src/shared/directives/*"
+        "./src/shared/directives/*"
       ],
       "@shared/pipes/*": [
-        "src/shared/pipes/*"
+        "./src/shared/pipes/*"
       ]
     }
   },

@@ -1,9 +1,4 @@
-import {
-  booleanAttribute,
-  computed,
-  Directive,
-  input
-} from '@angular/core';
+import { booleanAttribute, computed, Directive, input } from '@angular/core';
 
 export type TextS =
   | 'default'

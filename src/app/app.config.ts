@@ -11,11 +11,13 @@ import {
 import { provideRouter, withViewTransitions } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideNzConfig } from 'ng-zorro-antd/core/config';
+import { provideNzDateFnsAdapter } from 'ng-zorro-antd/core/time';
 import { zh_CN, provideNzI18n } from 'ng-zorro-antd/i18n';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 import { SharedModule } from '@shared';
+import { zhCN } from 'date-fns/locale';
 
 import { appInterceptor } from './app.interceptor';
 import { routes } from './app.routes';
@@ -46,6 +48,7 @@ export const appConfig: ApplicationConfig = {
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       registrationStrategy: 'registerWhenStable:10000'
-    })
+    }),
+    provideNzDateFnsAdapter({ locale: zhCN, firstDayOfWeek: 1 })
   ]
 };

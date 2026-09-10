@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { Api } from './index';
 import { Order } from '@shared/models';
 
+import { Api } from './index';
+
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class OrdersApi extends Api<Order> {
-    override collection = 'orders';
+  override collection = 'orders';
 }

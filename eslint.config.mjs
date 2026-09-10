@@ -22,6 +22,7 @@ export default tseslint.config(
     processor: angular.processInlineTemplates,
     rules: {
       'prettier/prettier': 'error',
+      '@typescript-eslint/no-unused-vars': 'off',
       '@angular-eslint/directive-selector': [
         'error',
         {

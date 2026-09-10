@@ -1,31 +1,32 @@
 {
   "name": "litho",
-  "version": "21.0.0",
+  "version": "22.0.0",
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
     "lint": "ng lint"
   },
   "dependencies": {
-    "@angular/common": "^21.2.7",
-    "@angular/compiler": "^21.2.7",
-    "@angular/core": "^21.2.7",
-    "@angular/forms": "^21.2.7",
-    "@angular/platform-browser": "^21.2.7",
-    "@angular/router": "^21.2.7",
-    "@angular/service-worker": "^21.2.7",
-    "@ngx-pwa/local-storage": "21.0.0",
-    "ng-zorro-antd": "^21.2.1",
+    "@angular/common": "^22.1.6",
+    "@angular/compiler": "^22.1.6",
+    "@angular/core": "^22.1.6",
+    "@angular/forms": "^22.1.6",
+    "@angular/platform-browser": "^22.1.6",
+    "@angular/router": "^22.1.6",
+    "@angular/service-worker": "^22.1.6",
+    "@ngx-pwa/local-storage": "22.0.0",
+    "date-fns": "^4.1.0",
+    "ng-zorro-antd": "^22.0.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular-eslint/builder": "21.3.1",
-    "@angular/build": "^21.2.6",
-    "@angular/cli": "^21.2.6",
-    "@angular/compiler-cli": "^21.2.7",
+    "@angular-eslint/builder": "22.5.0",
+    "@angular/build": "^22.1.7",
+    "@angular/cli": "^22.1.7",
+    "@angular/compiler-cli": "^22.1.6",
     "@eslint/js": "^9.39.1",
-    "angular-eslint": "21.3.1",
+    "angular-eslint": "22.5.0",
     "eslint": "^9.39.1",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.5",
@@ -33,8 +34,8 @@
     "jsdom": "^27.1.0",
     "less": "^4.2.0",
     "prettier": "^3.8.0",
-    "typescript": "~5.9.2",
-    "typescript-eslint": "8.47.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "8.70.0",
     "vitest": "^4.0.8"
   }
 }

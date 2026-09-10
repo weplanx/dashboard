@@ -1,3 +1,4 @@
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,72 +12,72 @@ import { Any, Product } from '@shared/models';
 import { tips } from './tips';
 
 export interface FormInput {
-    data?: Product;
+  data?: Product;
 }
 
 @Component({
-    imports: [SharedModule],
-    selector: 'app-products-form',
-    templateUrl: './form.html'
+  imports: [SharedModule, TextFieldModule],
+  selector: 'app-products-form',
+  templateUrl: './form.html'
 })
 export class Form implements OnInit {
-    input = inject<FormInput>(NZ_MODAL_DATA);
-    productsApi = inject(ProductsApi);
+  input = inject<FormInput>(NZ_MODAL_DATA);
+  productsApi = inject(ProductsApi);
 
-    private destroyRef = inject(DestroyRef);
-    private modalRef = inject(NzModalRef);
-    private message = inject(NzMessageService);
-    private fb = inject(FormBuilder);
+  private destroyRef = inject(DestroyRef);
+  private modalRef = inject(NzModalRef);
+  private message = inject(NzMessageService);
+  private fb = inject(FormBuilder);
 
-    form: FormGroup = this.fb.group({
-        org_id: ['', [Validators.required]],
-        name: ['', [Validators.required]],
-        description: [''],
-        price: [null, [Validators.required, Validators.min(0.01)]],
-        stock: [0, [Validators.required, Validators.min(0)]],
-        status: [true, [Validators.required]],
-        thumbnail: ['']
-    });
-    tips = tips;
+  form: FormGroup = this.fb.group({
+    org_id: ['', [Validators.required]],
+    name: ['', [Validators.required]],
+    description: [''],
+    price: [null, [Validators.required, Validators.min(0.01)]],
+    stock: [0, [Validators.required, Validators.min(0)]],
+    status: [true, [Validators.required]],
+    thumbnail: ['']
+  });
+  tips = tips;
 
-    ngOnInit(): void {
-        if (this.input.data) {
-            this.getData(this.input.data.id);
-        }
+  ngOnInit(): void {
+    if (this.input.data) {
+      this.getData(this.input.data.id);
     }
+  }
 
-    getData(id: string): void {
-        this.productsApi
-            .findById(id)
-            .pipe(takeUntilDestroyed(this.destroyRef))
-            .subscribe(data => {
-                this.form.patchValue(data);
-            });
-    }
+  getData(id: string): void {
+    this.productsApi
+      .findById(id)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(data => {
+        this.form.patchValue(data);
+      });
+  }
 
-    close(): void {
-        this.modalRef.triggerCancel();
-    }
+  close(): void {
+    this.modalRef.triggerCancel();
+  }
 
-    submit(data: Any): void {
-        const dto = { ...data };
-        if (!this.input.data) {
-            this.productsApi
-                .create(dto)
-                .pipe(takeUntilDestroyed(this.destroyRef))
-                .subscribe(() => {
-                    this.message.success(`新增成功`);
-                    this.modalRef.triggerOk();
-                });
-        } else {
-            dto.id = this.input.data.id;
-            this.productsApi
-                .update(dto)
-                .pipe(takeUntilDestroyed(this.destroyRef))
-                .subscribe(() => {
-                    this.message.success(`更新成功`);
-                    this.modalRef.triggerOk();
-                });
-        }
+  submit(data: Any): void {
+    const dto = { ...data };
+    if (!this.input.data) {
+      this.productsApi
+        .create(dto)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe(() => {
+          this.message.success(`新增成功`);
+          this.modalRef.triggerOk();
+        });
+    } else {
+      dto.id = this.input.data.id;
+      this.productsApi
+        .update(dto)
+        .pipe(takeUntilDestroyed(this.destroyRef))
+        .subscribe(() => {
+          this.message.success(`更新成功`);
+          this.modalRef.triggerOk();
+        });
     }
+  }
 }

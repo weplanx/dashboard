@@ -12,7 +12,9 @@
         nz-input
         formControlName="description"
         placeholder="请输入产品描述"
-        [nzAutosize]="{ minRows: 2, maxRows: 4 }"
+        cdkTextareaAutosize
+        cdkAutosizeMinRows="2"
+        cdkAutosizeMaxRows="4"
       ></textarea>
     </nz-form-control>
   </nz-form-item>

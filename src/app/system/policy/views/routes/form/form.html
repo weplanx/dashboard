@@ -41,7 +41,7 @@
           <nz-input-wrapper>
             <nz-icon
               nzInputAddonBefore
-              [nzType]="form.get('icon')?.value === '' ? 'question' : form.get('icon')?.value"
+              [nzType]="form.get('icon')?.value === '' ? 'question' : $safeNavigationMigration(form.get('icon')?.value)"
             />
             <input nz-input formControlName="icon" placeholder="请输入图标" />
           </nz-input-wrapper>

@@ -55,7 +55,7 @@ export class Sms implements OnDestroy {
     //   });
   }
 
-  submit(data: Any): void {
+  submit(_data: Any): void {
     this.loading.start();
   }
 }
